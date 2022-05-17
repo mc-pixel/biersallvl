@@ -1,7 +1,8 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   return (
@@ -13,12 +14,37 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <nav className={styles.mainnav}>
+          <ul>
+            <Link href="/">
+              <a>
+                <li>Home</li>
+              </a>
+            </Link>
+            <Link href="/">
+              <a>
+                <li>Labels</li>
+              </a>
+            </Link>
+            <Link href="/">
+              <a>
+                <li>Beers</li>
+              </a>
+            </Link>
+            <Link href="/">
+              <a>
+                <li>Mikes lists</li>
+              </a>
+            </Link>
+          </ul>
+        </nav>
+
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>pages/index.tsx</code>
         </p>
 
@@ -55,18 +81,23 @@ const Home: NextPage = () => {
 
       <footer className={styles.footer}>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://instagram.com/thebeerlvl?igshid=YmMyMTA2M2Y="
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          {" "}
           <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            <Image
+              src="/Biersal_Logo.jpg"
+              alt="Biersal Logo"
+              width={300}
+              height={300}
+            />
           </span>
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
