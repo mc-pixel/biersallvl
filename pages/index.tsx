@@ -21,17 +21,17 @@ const Home: NextPage = () => {
               <a>
                 <li>Home</li>
               </a>
-            </Link>
+            </Link>{" "}
             <Link href="/">
               <a>
                 <li>Labels</li>
               </a>
-            </Link>
+            </Link>{" "}
             <Link href="/">
               <a>
                 <li>Beers add comments and stars</li> 
               </a>
-            </Link>
+            </Link>{" "}
             <Link href="/">
               <a>
                 <li>Mikes lists</li>

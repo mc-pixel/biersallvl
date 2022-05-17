@@ -32,3 +32,15 @@ footer {
   align-items: center;
   flex-grow: 1;
 }
+nav{
+  background-color: #e69100;
+}
+nav ul{
+  list-style: none;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+}
+nav ul li{
+  display: inline;
+}
