@@ -33,7 +33,11 @@ footer {
   flex-grow: 1;
 }
 nav{
+  position:relative;
   background-color: #e69100;
+  display: flex;
+  align-self: flex-start;
+  top: -120px;
 }
 nav ul{
   list-style: none;

@@ -26,7 +26,7 @@ const Home: NextPage = () => {
               </a>
             </Link>
             {" / "}
-            <Link href="/Labels">
+            <Link href="/">
               <a>
                 <li>Labels</li>
               </a>
@@ -47,11 +47,9 @@ const Home: NextPage = () => {
         </nav>
 
         <h1 className={styles.title}>Welcome to Thebeerlvl! add styling</h1>
-        {"add a marquee slide effect"}
 
         <p className={styles.description}>
-          Currently our team is working hard to genarate more content. Meanwhile
-          enjoy the page{" "}
+          here i shall implement a grid displaying images of beer labels{" "}
         </p>
 
         <div className={styles.grid}>
