@@ -42,7 +42,8 @@ nav ul li{
   height: 50px;
   background-color: #000000;
   width: 3px;
-  rotate:79deg ;
+  transform: rotate(29deg) ;
+
 }
 
 
