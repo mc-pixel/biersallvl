@@ -69,7 +69,7 @@ const Home: NextPage = ({ products }) => {
         </nav>
 
         <h1 className={styles.title}>Welcome to...</h1>
-        <span className={styles.title}>Thebeerlvl</span>
+        <span id="Thebeerlvl" className={styles.title} >Thebeerlvl</span>
 
         <p className={styles.description}>
           Currently our team is working hard to genarate more content. Meanwhile

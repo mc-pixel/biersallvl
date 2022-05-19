@@ -1,3 +1,17 @@
+@font-face {
+  font-family:"CDBlack";
+  src: url("/typography/CinzelDecorative-Black.woff2") format("woff2");
+}
+@font-face {
+  font-family:"CDBold";
+  src: url("/typography/CinzelDecorative-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family:"CDRegular";
+  src: url("/typography/CinzelDecorative-Regular.woff2") format("woff2");
+}
+
+
 html,
 body {
   padding: 0;
@@ -45,8 +59,11 @@ nav ul li{
   transform: rotate(29deg) ;
 
 }
+/* nav bar stylings end*/
 
-
+#Thebeerlvl{
+  font-family: "CDBold";
+}
 
 /*footer global stylings*/
 footer {
