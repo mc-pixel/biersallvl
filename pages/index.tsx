@@ -4,8 +4,30 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
+import { request, gql } from "graphql-request";
 
-const Home: NextPage = () => {
+const gqlUrl =
+  "https://api-eu-central-1.graphcms.com/v2/cl3cteb7h17j201xngosfceln/master";
+const query = gql`
+  query {
+    products {
+      id
+      name
+      description
+    }
+  }
+`;
+export async function getServerSideProps() {
+  const data = await request(gqlUrl, query);
+  return {
+    props: {
+      products: data.products,
+    },
+  };
+}
+
+const Home: NextPage = ({ products }) => {
+  console.log(products);
   return (
     <div className={styles.container}>
       <Head>
@@ -25,7 +47,7 @@ const Home: NextPage = () => {
                 <li>Home</li>
               </a>
             </Link>
-            {" / "}
+            <div id="menu-line"></div>
             <Link href="/Labels">
               <a>
                 <li>Labels</li>
@@ -46,8 +68,8 @@ const Home: NextPage = () => {
           </ul>
         </nav>
 
-        <h1 className={styles.title}>Welcome to Thebeerlvl! add styling</h1>
-        {"add a marquee slide effect"}
+        <h1 className={styles.title}>Welcome to...</h1>
+        <span className={styles.title}>Thebeerlvl</span>
 
         <p className={styles.description}>
           Currently our team is working hard to genarate more content. Meanwhile
