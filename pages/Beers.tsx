@@ -6,36 +6,28 @@ import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
 import { request, gql } from "graphql-request";
 
-
-
 const gqlUrl =
-  "https://api-eu-central-1.graphcms.com/v2/cl3d9jwsl203y01xn0xvp8wr1/master";
+  "https://api-eu-central-1.graphcms.com/v2/cl3cteb7h17j201xngosfceln/master";
 const query = gql`
-query{
-    lables {
-      title
-      image{
-        url
-      }
+  query {
+    products {
+      id
+      name
+      description
     }
   }
-  
-  
 `;
 export async function getServerSideProps() {
   const data = await request(gqlUrl, query);
-  console.log(data)
   return {
     props: {
-      lables: data.lables,
+      products: data.products,
     },
   };
 }
 
-
-
-
-const Home: NextPage = ({lables}) => {
+const Home: NextPage = ({ products }) => {
+  console.log(products);
   return (
     <div className={styles.container}>
       <Head>
@@ -48,12 +40,12 @@ const Home: NextPage = ({lables}) => {
       </Head>
 
       <main className={styles.main}>
-        <nav className={styles.mainnav} id="menu-style">
+        <motion.nav className={styles.mainnav} id="menu-style">
           <ul>
             <Link href="/">
-              <a>
+              <motion.a whileHover={{ scale: 1.1 }}>
                 <li>Home</li>
-              </a>
+              </motion.a>
             </Link>
             <div id="menu-line"></div>
             <Link href="/Labels">
@@ -62,7 +54,7 @@ const Home: NextPage = ({lables}) => {
               </a>
             </Link>
             <div id="menu-line"></div>
-            <Link href="/Beers">
+            <Link href="/">
               <a>
                 <li>Beers and reviews</li>
               </a>
@@ -74,18 +66,29 @@ const Home: NextPage = ({lables}) => {
               </a>
             </Link>
           </ul>
-        </nav>
-        <div>
-        <div>
-      {lables.map((lable) => (
-        <div className={styles.grid}>
-            <span className={styles.card}>{lable.title}</span>
-          <span>{lable.image.url}</span>
-        </div>
-      ))}
-    </div>
-        </div>
+        </motion.nav>
 
+        <motion.h1
+          animate={{ x: [-1000, 0] }}
+          transition={{ ease: "easeOut", duration: 3 }}
+          className={styles.title}
+          id="initial-pos"
+        >
+          Welcome to...
+        </motion.h1>
+        <motion.span
+          animate={{ x: [1000, 0] }}
+          transition={{ ease: "easeOut", duration: 3 }}
+          id="Thebeerlvl"
+          className={styles.title}
+        >
+          Thebeerlvl
+        </motion.span>
+
+        <p className={styles.description}>
+          Currently our team is working hard to genarate more content. Meanwhile
+          enjoy the page{" "}
+        </p>
       </main>
 
       <footer className={styles.footer}>

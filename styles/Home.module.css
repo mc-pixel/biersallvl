@@ -37,7 +37,9 @@
   line-height: 1.5;
   font-size: 1.5rem;
 }
-
+#initial-pos{
+  left: -1000px;
+}
 .code {
   background: #fafafa;
   border-radius: 5px;

@@ -12,13 +12,11 @@ const gqlUrl =
   "https://api-eu-central-1.graphcms.com/v2/cl3d9jwsl203y01xn0xvp8wr1/master";
 const query = gql`
 query{
-    lables {
+    recomendations{
       title
-      image{
-        url
-      }
+      content
     }
-  }
+}
   
   
 `;
@@ -27,7 +25,7 @@ export async function getServerSideProps() {
   console.log(data)
   return {
     props: {
-      lables: data.lables,
+        recomendations: data.recomendations,
     },
   };
 }
@@ -35,7 +33,7 @@ export async function getServerSideProps() {
 
 
 
-const Home: NextPage = ({lables}) => {
+const Home: NextPage = ({recomendations}) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -62,7 +60,7 @@ const Home: NextPage = ({lables}) => {
               </a>
             </Link>
             <div id="menu-line"></div>
-            <Link href="/Beers">
+            <Link href="/">
               <a>
                 <li>Beers and reviews</li>
               </a>
@@ -77,10 +75,10 @@ const Home: NextPage = ({lables}) => {
         </nav>
         <div>
         <div>
-      {lables.map((lable) => (
-        <div className={styles.grid}>
-            <span className={styles.card}>{lable.title}</span>
-          <span>{lable.image.url}</span>
+      {recomendations.map((recomendation) => (
+        <div>
+            <h1 className={styles.title}>{recomendation.title}</h1>
+          <p>{recomendation.content}</p>
         </div>
       ))}
     </div>

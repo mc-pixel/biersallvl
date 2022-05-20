@@ -40,12 +40,12 @@ const Home: NextPage = ({ products }) => {
       </Head>
 
       <main className={styles.main}>
-        <nav className={styles.mainnav}>
+        <motion.nav className={styles.mainnav} id="menu-style">
           <ul>
             <Link href="/">
-              <a>
+              <motion.a whileHover={{ scale: 1.1 }}>
                 <li>Home</li>
-              </a>
+              </motion.a>
             </Link>
             <div id="menu-line"></div>
             <Link href="/Labels">
@@ -53,58 +53,42 @@ const Home: NextPage = ({ products }) => {
                 <li>Labels</li>
               </a>
             </Link>
-            {" / "}
-            <Link href="/">
+            <div id="menu-line"></div>
+            <Link href="/Beers">
               <a>
-                <li>Beers add comments and stars</li>
+                <li>Beers and reviews</li>
               </a>
             </Link>
-            {" / "}
-            <Link href="/">
+            <div id="menu-line"></div>
+            <Link href="/List">
               <a>
                 <li>Mikes lists</li>
               </a>
             </Link>
           </ul>
-        </nav>
+        </motion.nav>
 
-        <h1 className={styles.title}>Welcome to...</h1>
-        <span id="Thebeerlvl" className={styles.title} >Thebeerlvl</span>
+        <motion.h1
+          animate={{ x: [-1000, 0] }}
+          transition={{ ease: "easeOut", duration: 3 }}
+          className={styles.title}
+          id="initial-pos"
+        >
+          Welcome to...
+        </motion.h1>
+        <motion.span
+          animate={{ x: [1000, 0] }}
+          transition={{ ease: "easeOut", duration: 3 }}
+          id="Thebeerlvl"
+          className={styles.title}
+        >
+          Thebeerlvl
+        </motion.span>
 
         <p className={styles.description}>
           Currently our team is working hard to genarate more content. Meanwhile
           enjoy the page{" "}
         </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
       </main>
 
       <footer className={styles.footer}>
