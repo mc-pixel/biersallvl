@@ -49,21 +49,21 @@ const Home: NextPage = ({ products }) => {
             </Link>
             <div id="menu-line"></div>
             <Link href="/Labels">
-              <a>
+              <motion.a whileHover={{ scale: 1.1 }}>
                 <li>Labels</li>
-              </a>
+              </motion.a>
             </Link>
             <div id="menu-line"></div>
             <Link href="/Beers">
-              <a>
+              <motion.a whileHover={{ scale: 1.1 }}>
                 <li>Beers and reviews</li>
-              </a>
+              </motion.a>
             </Link>
             <div id="menu-line"></div>
             <Link href="/List">
-              <a>
+              <motion.a whileHover={{ scale: 1.1 }}>
                 <li>Mikes lists</li>
-              </a>
+              </motion.a>
             </Link>
           </ul>
         </motion.nav>

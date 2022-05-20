@@ -6,34 +6,27 @@ import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
 import { request, gql } from "graphql-request";
 
-
-
 const gqlUrl =
   "https://api-eu-central-1.graphcms.com/v2/cl3d9jwsl203y01xn0xvp8wr1/master";
 const query = gql`
-query{
-    recomendations{
+  query {
+    recomendations {
       title
       content
     }
-}
-  
-  
+  }
 `;
 export async function getServerSideProps() {
   const data = await request(gqlUrl, query);
-  console.log(data)
+  console.log(data);
   return {
     props: {
-        recomendations: data.recomendations,
+      recomendations: data.recomendations,
     },
   };
 }
 
-
-
-
-const Home: NextPage = ({recomendations}) => {
+const Home: NextPage = ({ recomendations }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -74,16 +67,15 @@ const Home: NextPage = ({recomendations}) => {
           </ul>
         </nav>
         <div>
-        <div>
-      {recomendations.map((recomendation) => (
-        <div>
-            <h1 className={styles.title}>{recomendation.title}</h1>
-          <p>{recomendation.content}</p>
+          <div>
+            {recomendations.map((recomendation) => (
+              <div>
+                <h1 className={styles.title}>{recomendation.title}</h1>
+                <p>{recomendation.content}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-        </div>
-
       </main>
 
       <footer className={styles.footer}>

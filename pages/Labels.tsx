@@ -6,25 +6,21 @@ import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
 import { request, gql } from "graphql-request";
 
-
-
 const gqlUrl =
   "https://api-eu-central-1.graphcms.com/v2/cl3d9jwsl203y01xn0xvp8wr1/master";
 const query = gql`
-query{
+  query {
     lables {
       title
-      image{
+      image {
         url
       }
     }
   }
-  
-  
 `;
 export async function getServerSideProps() {
   const data = await request(gqlUrl, query);
-  console.log(data)
+  console.log(data);
   return {
     props: {
       lables: data.lables,
@@ -32,10 +28,7 @@ export async function getServerSideProps() {
   };
 }
 
-
-
-
-const Home: NextPage = ({lables}) => {
+const Home: NextPage = ({ lables }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -51,41 +44,40 @@ const Home: NextPage = ({lables}) => {
         <nav className={styles.mainnav} id="menu-style">
           <ul>
             <Link href="/">
-              <a>
+              <motion.a whileHover={{ scale: 1.1 }}>
                 <li>Home</li>
-              </a>
+              </motion.a>
             </Link>
             <div id="menu-line"></div>
             <Link href="/Labels">
-              <a>
+              <motion.a whileHover={{ scale: 1.1 }}>
                 <li>Labels</li>
-              </a>
+              </motion.a>
             </Link>
             <div id="menu-line"></div>
             <Link href="/Beers">
-              <a>
+              <motion.a whileHover={{ scale: 1.1 }}>
                 <li>Beers and reviews</li>
-              </a>
+              </motion.a>
             </Link>
             <div id="menu-line"></div>
             <Link href="/List">
-              <a>
+              <motion.a whileHover={{ scale: 1.1 }}>
                 <li>Mikes lists</li>
-              </a>
+              </motion.a>
             </Link>
           </ul>
         </nav>
         <div>
-        <div>
-      {lables.map((lable) => (
-        <div className={styles.grid}>
-            <span className={styles.card}>{lable.title}</span>
-          <span>{lable.image.url}</span>
+          <div>
+            {lables.map((lable) => (
+              <div className={styles.grid}>
+                <span className={styles.card}>{lable.title}</span>
+                <span>{lable.image.url}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-        </div>
-
       </main>
 
       <footer className={styles.footer}>

@@ -86,8 +86,7 @@ const Home: NextPage = ({ products }) => {
         </motion.span>
 
         <p className={styles.description}>
-          Currently our team is working hard to genarate more content. Meanwhile
-          enjoy the page{" "}
+          This part as many others are thought to have continious development{" "}
         </p>
       </main>
 
