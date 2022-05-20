@@ -13,23 +13,25 @@ const gqlUrl =
 const query = gql`
 query{
     lables {
-  
       title
-      image {
-        id
-      } 
+      image{
+        url
+      }
     }
   }
+  
   
 `;
 export async function getServerSideProps() {
   const data = await request(gqlUrl, query);
+  console.log(data)
   return {
     props: {
       lables: data.lables,
     },
   };
 }
+
 
 
 
@@ -78,7 +80,7 @@ const Home: NextPage = ({lables}) => {
       {lables.map((lable) => (
         <div>
             <span>{lable.title}</span>
-          <Image src={lable.image} />
+          <span>{lable.image.url}</span>
         </div>
       ))}
     </div>
