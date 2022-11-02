@@ -73,7 +73,8 @@ const Home: NextPage = ({ lables }) => {
             {lables.map((lable) => (
               <div className={styles.grid}>
                 <span className={styles.card}>{lable.title}</span>
-                <span>{lable.image.url}</span>
+                {lable.image.map((img) => (
+                <span className={styles.card}>{img.url}</span>))}
               </div>
             ))}
           </div>
